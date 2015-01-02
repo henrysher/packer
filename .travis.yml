@@ -7,6 +7,8 @@ go:
 
 install: make updatedeps
 script:
+    - sed -i "s/mitchellh\/packer/henrysher\/packer/g" `find . -name "*.go"`
+    - sed -i "s/mitchellh\/packer/hhenry\/packer/g" scripts/compile.sh
     - GOMAXPROCS=2 make test
     #- go test -race ./...
 
