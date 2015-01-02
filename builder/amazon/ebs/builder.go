@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/ec2"
 	"github.com/mitchellh/multistep"
 	awscommon "github.com/henrysher/packer/builder/amazon/common"
 	"github.com/henrysher/packer/common"

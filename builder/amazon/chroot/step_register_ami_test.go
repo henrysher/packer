@@ -1,7 +1,7 @@
 package chroot
 
 import (
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/ec2"
 	"testing"
 )
 

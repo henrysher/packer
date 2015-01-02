@@ -2,7 +2,7 @@ package common
 
 import (
 	"fmt"
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/ec2"
 	"github.com/mitchellh/multistep"
 	"github.com/henrysher/packer/common/uuid"
 	"github.com/henrysher/packer/packer"

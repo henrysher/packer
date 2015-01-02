@@ -3,7 +3,7 @@ package common
 import (
 	"errors"
 	"fmt"
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/ec2"
 	"github.com/mitchellh/multistep"
 	"log"
 	"net"

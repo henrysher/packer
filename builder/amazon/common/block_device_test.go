@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/ec2"
 	"reflect"
 	"testing"
 )

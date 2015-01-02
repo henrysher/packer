@@ -2,8 +2,8 @@ package common
 
 import (
 	"fmt"
-	"github.com/mitchellh/goamz/aws"
-	"github.com/mitchellh/goamz/ec2"
+	"github.com/henrysher/goamz/aws"
+	"github.com/henrysher/goamz/ec2"
 	"github.com/mitchellh/multistep"
 	"github.com/henrysher/packer/packer"
 )
