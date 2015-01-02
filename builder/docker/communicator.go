@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/ActiveState/tail"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 type Communicator struct {

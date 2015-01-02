@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/go-version"
 	"github.com/mitchellh/mapstructure"
-	jsonutil "github.com/mitchellh/packer/common/json"
+	jsonutil "github.com/henrysher/packer/common/json"
 	"io"
 	"io/ioutil"
 	"os"

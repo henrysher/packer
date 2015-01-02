@@ -2,10 +2,10 @@ package dockertag
 
 import (
 	"fmt"
-	"github.com/mitchellh/packer/builder/docker"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
-	"github.com/mitchellh/packer/post-processor/docker-import"
+	"github.com/henrysher/packer/builder/docker"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
+	"github.com/henrysher/packer/post-processor/docker-import"
 )
 
 const BuilderId = "packer.post-processor.docker-tag"

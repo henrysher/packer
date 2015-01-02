@@ -6,7 +6,7 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"io"
 	"log"
 	"os"

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mitchellh/packer/builder/vmware/vmx"
-	"github.com/mitchellh/packer/packer/plugin"
+	"github.com/henrysher/packer/builder/vmware/vmx"
+	"github.com/henrysher/packer/packer/plugin"
 )
 
 func main() {

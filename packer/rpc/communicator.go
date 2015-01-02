@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"encoding/gob"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"io"
 	"log"
 	"net/rpc"

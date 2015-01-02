@@ -6,7 +6,7 @@ import (
 	"code.google.com/p/go.crypto/ssh"
 	"errors"
 	"fmt"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"io"
 	"io/ioutil"
 	"log"

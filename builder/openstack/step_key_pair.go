@@ -3,8 +3,8 @@ package openstack
 import (
 	"fmt"
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/common/uuid"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common/uuid"
+	"github.com/henrysher/packer/packer"
 	"log"
 	"os"
 	"runtime"

@@ -3,7 +3,7 @@ package common
 import (
 	"fmt"
 
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 // FloppyConfig is configuration related to created floppy disks and attaching

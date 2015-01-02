@@ -5,7 +5,7 @@ import (
 	"github.com/mitchellh/go-fs"
 	"github.com/mitchellh/go-fs/fat"
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"io"
 	"io/ioutil"
 	"log"

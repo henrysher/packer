@@ -9,8 +9,8 @@ import (
 
 	gossh "code.google.com/p/go.crypto/ssh"
 	"github.com/mitchellh/multistep"
-	commonssh "github.com/mitchellh/packer/common/ssh"
-	"github.com/mitchellh/packer/communicator/ssh"
+	commonssh "github.com/henrysher/packer/common/ssh"
+	"github.com/henrysher/packer/communicator/ssh"
 )
 
 func SSHAddressFunc(config *SSHConfig) func(multistep.StateBag) (string, error) {

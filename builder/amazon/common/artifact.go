@@ -8,7 +8,7 @@ import (
 
 	"github.com/mitchellh/goamz/aws"
 	"github.com/mitchellh/goamz/ec2"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 // Artifact is an artifact implementation that contains built AMIs.

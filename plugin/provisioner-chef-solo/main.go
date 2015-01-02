@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mitchellh/packer/packer/plugin"
-	"github.com/mitchellh/packer/provisioner/chef-solo"
+	"github.com/henrysher/packer/packer/plugin"
+	"github.com/henrysher/packer/provisioner/chef-solo"
 )
 
 func main() {

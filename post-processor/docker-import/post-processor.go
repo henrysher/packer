@@ -2,9 +2,9 @@ package dockerimport
 
 import (
 	"fmt"
-	"github.com/mitchellh/packer/builder/docker"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/builder/docker"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
 )
 
 const BuilderId = "packer.post-processor.docker-import"

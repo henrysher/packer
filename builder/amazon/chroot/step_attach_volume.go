@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/mitchellh/goamz/ec2"
 	"github.com/mitchellh/multistep"
-	awscommon "github.com/mitchellh/packer/builder/amazon/common"
-	"github.com/mitchellh/packer/packer"
+	awscommon "github.com/henrysher/packer/builder/amazon/common"
+	"github.com/henrysher/packer/packer"
 	"strings"
 )
 

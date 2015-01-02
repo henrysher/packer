@@ -1,7 +1,7 @@
 package puppetserver
 
 import (
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"io/ioutil"
 	"os"
 	"testing"

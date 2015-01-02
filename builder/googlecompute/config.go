@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/common/uuid"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/common/uuid"
+	"github.com/henrysher/packer/packer"
 )
 
 // Config is the configuration structure for the GCE builder. It stores

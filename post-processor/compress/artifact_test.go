@@ -1,7 +1,7 @@
 package compress
 
 import (
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"testing"
 )
 

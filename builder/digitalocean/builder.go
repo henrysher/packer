@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/common/uuid"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/common/uuid"
+	"github.com/henrysher/packer/packer"
 )
 
 // see https://api.digitalocean.com/images/?client_id=[client_id]&api_key=[api_key]

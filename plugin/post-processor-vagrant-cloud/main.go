@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mitchellh/packer/packer/plugin"
-	"github.com/mitchellh/packer/post-processor/vagrant-cloud"
+	"github.com/henrysher/packer/packer/plugin"
+	"github.com/henrysher/packer/post-processor/vagrant-cloud"
 )
 
 func main() {

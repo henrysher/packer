@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/mitchellh/multistep"
-	parallelscommon "github.com/mitchellh/packer/builder/parallels/common"
-	"github.com/mitchellh/packer/packer"
+	parallelscommon "github.com/henrysher/packer/builder/parallels/common"
+	"github.com/henrysher/packer/packer"
 )
 
 // This step creates the actual virtual machine.

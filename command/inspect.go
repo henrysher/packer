@@ -3,7 +3,7 @@ package command
 import (
 	"flag"
 	"fmt"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"log"
 	"sort"
 	"strings"

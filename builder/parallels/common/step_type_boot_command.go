@@ -9,7 +9,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 const KeyLeftShift uint32 = 0xFFE1

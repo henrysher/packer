@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mitchellh/packer/fix"
+	"github.com/henrysher/packer/fix"
 )
 
 type FixCommand struct {

@@ -3,7 +3,7 @@ package common
 import (
 	"errors"
 	"fmt"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 type ExportConfig struct {

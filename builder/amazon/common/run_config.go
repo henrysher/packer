@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/mitchellh/packer/common/uuid"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common/uuid"
+	"github.com/henrysher/packer/packer"
 )
 
 // RunConfig contains configuration for running an instance from a source

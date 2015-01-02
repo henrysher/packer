@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/mitchellh/osext"
-	"github.com/mitchellh/packer/packer"
-	"github.com/mitchellh/packer/packer/plugin"
+	"github.com/henrysher/packer/packer"
+	"github.com/henrysher/packer/packer/plugin"
 )
 
 // EnvConfig is the global EnvironmentConfig we use to initialize the CLI.

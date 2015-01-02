@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	commonssh "github.com/mitchellh/packer/common/ssh"
-	"github.com/mitchellh/packer/packer"
+	commonssh "github.com/henrysher/packer/common/ssh"
+	"github.com/henrysher/packer/packer"
 )
 
 type SSHConfig struct {

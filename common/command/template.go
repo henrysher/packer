@@ -3,8 +3,8 @@ package command
 import (
 	"errors"
 	"fmt"
-	jsonutil "github.com/mitchellh/packer/common/json"
-	"github.com/mitchellh/packer/packer"
+	jsonutil "github.com/henrysher/packer/common/json"
+	"github.com/henrysher/packer/packer"
 	"io/ioutil"
 	"log"
 	"os"

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mitchellh/packer/builder/amazon/ebs"
-	"github.com/mitchellh/packer/packer/plugin"
+	"github.com/henrysher/packer/builder/amazon/ebs"
+	"github.com/henrysher/packer/packer/plugin"
 )
 
 func main() {

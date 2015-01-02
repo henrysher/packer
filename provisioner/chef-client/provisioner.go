@@ -13,9 +13,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/common/uuid"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/common/uuid"
+	"github.com/henrysher/packer/packer"
 )
 
 type Config struct {

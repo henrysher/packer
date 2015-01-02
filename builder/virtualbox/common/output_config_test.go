@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/mitchellh/packer/common"
+	"github.com/henrysher/packer/common"
 	"io/ioutil"
 	"os"
 	"testing"

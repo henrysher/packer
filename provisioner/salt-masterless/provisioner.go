@@ -5,8 +5,8 @@ package saltmasterless
 import (
 	"errors"
 	"fmt"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
 	"os"
 	"path/filepath"
 )

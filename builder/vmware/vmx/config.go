@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	vmwcommon "github.com/mitchellh/packer/builder/vmware/common"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
+	vmwcommon "github.com/henrysher/packer/builder/vmware/common"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
 )
 
 // Config is the configuration structure for the builder.

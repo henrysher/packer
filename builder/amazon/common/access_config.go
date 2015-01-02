@@ -3,7 +3,7 @@ package common
 import (
 	"fmt"
 	"github.com/mitchellh/goamz/aws"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"strings"
 	"unicode"
 )

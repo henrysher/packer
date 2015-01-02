@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 func testStepShutdownState(t *testing.T) multistep.StateBag {

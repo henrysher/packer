@@ -12,8 +12,8 @@ import (
 	"sync"
 
 	"github.com/mitchellh/cli"
-	"github.com/mitchellh/packer/packer"
-	"github.com/mitchellh/packer/packer/plugin"
+	"github.com/henrysher/packer/packer"
+	"github.com/henrysher/packer/packer/plugin"
 	"github.com/mitchellh/panicwrap"
 	"github.com/mitchellh/prefixedio"
 )

@@ -2,7 +2,7 @@ package command
 
 import (
 	"github.com/mitchellh/cli"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 type Meta struct {

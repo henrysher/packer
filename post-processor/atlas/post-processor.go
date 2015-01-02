@@ -9,8 +9,8 @@ import (
 	"github.com/hashicorp/atlas-go/archive"
 	"github.com/hashicorp/atlas-go/v1"
 	"github.com/mitchellh/mapstructure"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
 )
 
 const BuildEnvKey = "ATLAS_BUILD_ID"

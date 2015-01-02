@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 // stepRun runs the virtual machine

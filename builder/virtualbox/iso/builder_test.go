@@ -1,8 +1,8 @@
 package iso
 
 import (
-	"github.com/mitchellh/packer/builder/virtualbox/common"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/builder/virtualbox/common"
+	"github.com/henrysher/packer/packer"
 	"reflect"
 	"testing"
 )

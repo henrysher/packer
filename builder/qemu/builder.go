@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/common"
-	commonssh "github.com/mitchellh/packer/common/ssh"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/common"
+	commonssh "github.com/henrysher/packer/common/ssh"
+	"github.com/henrysher/packer/packer"
 )
 
 const BuilderId = "transcend.qemu"

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/mitchellh/packer/builder/vmware/iso"
-	"github.com/mitchellh/packer/packer/plugin"
+	"github.com/henrysher/packer/builder/vmware/iso"
+	"github.com/henrysher/packer/packer/plugin"
 )
 
 func main() {

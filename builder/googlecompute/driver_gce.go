@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"code.google.com/p/google-api-go-client/compute/v1"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 
 	// oauth2 "github.com/rasa/oauth2-fork-b3f9a68"
 	"github.com/rasa/oauth2-fork-b3f9a68"

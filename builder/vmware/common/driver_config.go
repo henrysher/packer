@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 type DriverConfig struct {

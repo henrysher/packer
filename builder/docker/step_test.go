@@ -3,7 +3,7 @@ package docker
 import (
 	"bytes"
 	"github.com/mitchellh/multistep"
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 	"testing"
 )
 

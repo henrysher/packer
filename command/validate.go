@@ -3,8 +3,8 @@ package command
 import (
 	"flag"
 	"fmt"
-	cmdcommon "github.com/mitchellh/packer/common/command"
-	"github.com/mitchellh/packer/packer"
+	cmdcommon "github.com/henrysher/packer/common/command"
+	"github.com/henrysher/packer/packer"
 	"log"
 	"strings"
 )

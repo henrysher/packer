@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	parallelscommon "github.com/mitchellh/packer/builder/parallels/common"
-	"github.com/mitchellh/packer/common"
-	"github.com/mitchellh/packer/packer"
+	parallelscommon "github.com/henrysher/packer/builder/parallels/common"
+	"github.com/henrysher/packer/common"
+	"github.com/henrysher/packer/packer"
 )
 
 // Config is the configuration structure for the builder.
