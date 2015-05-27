@@ -2,15 +2,10 @@ package command
 
 import (
 	"fmt"
-<<<<<<< HEAD
-	"github.com/henrysher/packer/packer"
-	"log"
-=======
->>>>>>> master
 	"sort"
 	"strings"
 
-	"github.com/mitchellh/packer/template"
+	"github.com/henrysher/packer/template"
 )
 
 type InspectCommand struct {
