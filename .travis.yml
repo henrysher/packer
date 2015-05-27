@@ -1,17 +1,23 @@
+sudo: false
+
 language: go
 
 go:
-    - 1.2
-    - 1.3
-    - tip
+  - 1.4
+  - tip
 
 install: make updatedeps
+
 script:
-    - sed -i "s/mitchellh\/packer/henrysher\/packer/g" `find . -name "*.go"`
-    - sed -i "s/mitchellh\/goamz/henrysher\/goamz/g" `find . -name "*.go"`
-    - GOMAXPROCS=2 make test
-    #- go test -race ./...
+  - sed -i "s/mitchellh\/packer/henrysher\/packer/g" `find . -name "*.go"`
+  - sed -i "s/mitchellh\/goamz/henrysher\/goamz/g" `find . -name "*.go"`
+  - GOMAXPROCS=2 make test
+
+branches:
+  only:
+    - master
 
 matrix:
-    allow_failures:
-        - go: tip
+  fast_finish: true
+  allow_failures:
+    - go: tip

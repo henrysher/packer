@@ -11,7 +11,7 @@ import (
 
 	"github.com/hashicorp/atlas-go/archive"
 	"github.com/hashicorp/atlas-go/v1"
-	"github.com/henrysher/packer/packer"
+	"github.com/henrysher/packer/template"
 )
 
 // archiveTemplateEntry is the name the template always takes within the slug.
@@ -32,13 +32,16 @@ type pushUploadFn func(
 	io.Reader, *uploadOpts) (<-chan struct{}, <-chan error, error)
 
 func (c *PushCommand) Run(args []string) int {
-	var create bool
 	var token string
+	var message string
+	var create bool
 
 	f := flag.NewFlagSet("push", flag.ContinueOnError)
 	f.Usage = func() { c.Ui.Error(c.Help()) }
-	f.BoolVar(&create, "create", false, "create")
 	f.StringVar(&token, "token", "", "token")
+	f.StringVar(&message, "m", "", "message")
+	f.StringVar(&message, "message", "", "message")
+	f.BoolVar(&create, "create", false, "create (deprecated)")
 	if err := f.Parse(args); err != nil {
 		return 1
 	}
@@ -49,15 +52,21 @@ func (c *PushCommand) Run(args []string) int {
 		return 1
 	}
 
-	// Read the template
-	tpl, err := packer.ParseTemplateFile(args[0], nil)
+	// Print deprecations
+	if create {
+		c.Ui.Error(fmt.Sprintf("The '-create' option is now the default and is\n" +
+			"longer used. It will be removed in the next version."))
+	}
+
+	// Parse the template
+	tpl, err := template.ParseFile(args[0])
 	if err != nil {
 		c.Ui.Error(fmt.Sprintf("Failed to parse template: %s", err))
 		return 1
 	}
 
 	// Validate some things
-	if tpl.Push.Name == "" {
+	if tpl.Push == nil || tpl.Push.Name == "" {
 		c.Ui.Error(fmt.Sprintf(
 			"The 'push' section must be specified in the template with\n" +
 				"at least the 'name' option set."))
@@ -122,7 +131,7 @@ func (c *PushCommand) Run(args []string) int {
 	}
 
 	// Find the Atlas post-processors, if possible
-	var atlasPPs []packer.RawPostProcessorConfig
+	var atlasPPs []*template.PostProcessor
 	for _, list := range tpl.PostProcessors {
 		for _, pp := range list {
 			if pp.Type == "atlas" {
@@ -149,6 +158,15 @@ func (c *PushCommand) Run(args []string) int {
 		uploadOpts.Builds[b.Name] = info
 	}
 
+	// Add the upload metadata
+	metadata := make(map[string]interface{})
+	if message != "" {
+		metadata["message"] = message
+	}
+	metadata["template"] = tpl.RawContents
+	metadata["template_name"] = filepath.Base(args[0])
+	uploadOpts.Metadata = metadata
+
 	// Warn about builds not having post-processors.
 	var badBuilds []string
 	for name, b := range uploadOpts.Builds {
@@ -167,12 +185,6 @@ func (c *PushCommand) Run(args []string) int {
 				"and assume other post-processors are sending the artifacts where\n"+
 				"they need to go.\n\n"+
 				"Builds: %s\n\n", strings.Join(badBuilds, ", ")))
-	}
-
-	// Create the build config if it doesn't currently exist.
-	if err := c.create(uploadOpts.Slug, create); err != nil {
-		c.Ui.Error(err.Error())
-		return 1
 	}
 
 	// Start the archiving process
@@ -209,7 +221,7 @@ func (c *PushCommand) Run(args []string) int {
 		return 1
 	}
 
-	c.Ui.Output(fmt.Sprintf("Push successful to '%s'", tpl.Push.Name))
+	c.Ui.Say(fmt.Sprintf("Push successful to '%s'", tpl.Push.Name))
 	return 0
 }
 
@@ -217,59 +229,30 @@ func (*PushCommand) Help() string {
 	helpText := `
 Usage: packer push [options] TEMPLATE
 
-  Push the template and the files it needs to a Packer build service.
-  This will not initiate any builds, it will only update the templates
-  used for builds.
+  Push the given template and supporting files to a Packer build service such as
+  Atlas.
 
-  The configuration about what is pushed is configured within the
-  template's "push" section.
+  If a build configuration for the given template does not exist, it will be
+  created automatically. If the build configuration already exists, a new
+  version will be created with this template and the supporting files.
+
+  Additional configuration options (such as the Atlas server URL and files to
+  include) may be specified in the "push" section of the Packer template. Please
+  see the online documentation for more information about these configurables.
 
 Options:
 
-  -create             Create the build configuration if it doesn't exist.
+  -m, -message=<detail>    A message to identify the purpose or changes in this
+                           Packer template much like a VCS commit message
 
-  -token=<token>      Access token to use to upload. If blank, the
-                      ATLAS_TOKEN environmental variable will be used.
+  -token=<token>           The access token to use to when uploading
 `
 
 	return strings.TrimSpace(helpText)
 }
 
 func (*PushCommand) Synopsis() string {
-	return "push template files to a Packer build service"
-}
-
-func (c *PushCommand) create(name string, create bool) error {
-	if c.uploadFn != nil {
-		return nil
-	}
-
-	// Separate the slug into the user and name components
-	user, name, err := atlas.ParseSlug(name)
-	if err != nil {
-		return fmt.Errorf("Malformed push name: %s", err)
-	}
-
-	// Check if it exists. If so, we're done.
-	if _, err := c.client.BuildConfig(user, name); err == nil {
-		return nil
-	} else if err != atlas.ErrNotFound {
-		return err
-	}
-
-	// Otherwise, show an error if we're not creating.
-	if !create {
-		return fmt.Errorf(
-			"Push target doesn't exist: %s. Either create this online via\n"+
-				"the website or pass the -create flag.", name)
-	}
-
-	// Create it
-	if err := c.client.CreateBuildConfig(user, name); err != nil {
-		return err
-	}
-
-	return nil
+	return "push a template and supporting files to a Packer build service"
 }
 
 func (c *PushCommand) upload(
@@ -284,10 +267,17 @@ func (c *PushCommand) upload(
 		return nil, nil, fmt.Errorf("upload: %s", err)
 	}
 
-	// Get the app
+	// Get the build configuration
 	bc, err := c.client.BuildConfig(user, name)
 	if err != nil {
-		return nil, nil, fmt.Errorf("upload: %s", err)
+		if err == atlas.ErrNotFound {
+			// Build configuration doesn't exist, attempt to create it
+			bc, err = c.client.CreateBuildConfig(user, name)
+		}
+
+		if err != nil {
+			return nil, nil, fmt.Errorf("upload: %s", err)
+		}
 	}
 
 	// Build the version to send up
@@ -307,7 +297,7 @@ func (c *PushCommand) upload(
 	// Start the upload
 	doneCh, errCh := make(chan struct{}), make(chan error)
 	go func() {
-		err := c.client.UploadBuildConfigVersion(&version, r, r.Size)
+		err := c.client.UploadBuildConfigVersion(&version, opts.Metadata, r, r.Size)
 		if err != nil {
 			errCh <- err
 			return
@@ -320,9 +310,10 @@ func (c *PushCommand) upload(
 }
 
 type uploadOpts struct {
-	URL    string
-	Slug   string
-	Builds map[string]*uploadBuildInfo
+	URL      string
+	Slug     string
+	Builds   map[string]*uploadBuildInfo
+	Metadata map[string]interface{}
 }
 
 type uploadBuildInfo struct {
