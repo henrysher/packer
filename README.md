@@ -1,6 +1,6 @@
 # Packer
 
-[![Build Status](https://travis-ci.org/henrysher/packer.svg?branch=henrysher-release)](https://travis-ci.org/henrysher/packer)
+[![Build Status](https://travis-ci.org/henrysher/packer.svg?branch=enable-sigv4)](https://travis-ci.org/henrysher/packer)
 
 * Website: http://www.packer.io
 * IRC: `#packer-tool` on Freenode
