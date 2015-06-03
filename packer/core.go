@@ -6,8 +6,8 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-multierror"
-	"github.com/mitchellh/packer/template"
-	"github.com/mitchellh/packer/template/interpolate"
+	"github.com/henrysher/packer/template"
+	"github.com/henrysher/packer/template/interpolate"
 )
 
 // Core is the main executor of Packer. If Packer is being used as a

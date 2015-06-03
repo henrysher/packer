@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/mitchellh/packer/packer"
+	"github.com/henrysher/packer/packer"
 )
 
 const fixturesDir = "./test-fixtures"

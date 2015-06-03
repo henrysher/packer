@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mitchellh/packer/template"
+	"github.com/henrysher/packer/template"
 )
 
 func TestCoreBuildNames(t *testing.T) {
